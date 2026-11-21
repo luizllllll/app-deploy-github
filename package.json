@@ -1,0 +1,8 @@
+{
+  "name": "app-deploy-github",
+  "version": "1.0.0",
+  "description": "Calculadora simples com CI/CD no GitHub Actions",
+  "scripts": {
+    "test": "node --test test/calc.test.js"
+  }
+}
