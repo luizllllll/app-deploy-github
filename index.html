@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Simples</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+    .card { background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.1); text-align: center; }
+    h1 { margin-top: 0; color: #24292f; }
+    input, select, button { font-size: 18px; padding: 8px; margin: 4px; border-radius: 6px; border: 1px solid #ccc; }
+    input { width: 90px; }
+    button { background: #2da44e; color: #fff; border: none; cursor: pointer; }
+    #resultado { font-size: 24px; margin-top: 16px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Calculadora Simples</h1>
+    <input id="a" type="number" value="0">
+    <select id="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+    </select>
+    <input id="b" type="number" value="0">
+    <button onclick="mostrar()">=</button>
+    <div id="resultado"></div>
+    <p>Deploy feito com GitHub Actions (CI/CD)</p>
+  </div>
+  <script src="calc.js"></script>
+  <script>
+    function mostrar() {
+      const a = Number(document.getElementById("a").value);
+      const b = Number(document.getElementById("b").value);
+      const op = document.getElementById("op").value;
+      const saida = document.getElementById("resultado");
+      try {
+        saida.textContent = "Resultado: " + calcular(a, op, b);
+      } catch (e) {
+        saida.textContent = e.message;
+      }
+    }
+  </script>
+</body>
+</html>
